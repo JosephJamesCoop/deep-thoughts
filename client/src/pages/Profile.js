@@ -8,6 +8,7 @@ import FriendList from "../components/FriendList";
 import Auth from "../utils/auth";
 import ThoughtForm from '../components/ThoughtForm';
 
+
 const Profile = () => {
   const [addFriend] = useMutation(ADD_FRIEND);
   const { username: userParam } = useParams();
@@ -21,7 +22,7 @@ const Profile = () => {
   const handleClick = async () => {
     try {
       await addFriend({
-        variables: { id: user._id },
+        variables: { id: user._id }
       });
     } catch (e) {
       console.error(e);
@@ -60,6 +61,8 @@ const Profile = () => {
         )}
       </div>
 
+      
+
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
           <ThoughtList
@@ -78,7 +81,7 @@ const Profile = () => {
         </div>
       </div>
       <div className="mb-3">{!userParam && <ThoughtForm />}</div>
-    </div>
+    </div> 
   );
 };
 
